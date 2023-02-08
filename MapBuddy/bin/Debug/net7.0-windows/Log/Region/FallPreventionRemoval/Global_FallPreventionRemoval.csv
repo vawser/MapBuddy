@@ -1,0 +1,3 @@
+MapID;Name;Shape;Position;Rotation;Unk2C;Unk40;MapStudioLayer;UnkE08;MapID;UnkS04;UnkS0C;ActivationPartName;EntityID;
+m15_00_00_00;落下防止削除壁 腐った亡者落下地点;SoulsFormats.MSB+Shape+Box;<38.054, 509.354, 269.771>;<0, -8.042, 0>;88;0;4294967295;255;-1;0;-1;;0;
+m30_20_00_00;落下防止壁 削除;SoulsFormats.MSB+Shape+Box;<-63.553, 1301.549, -160.204>;<0, -90.439, 0>;62;0;4294967295;255;-1;0;-1;;0;

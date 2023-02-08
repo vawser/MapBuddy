@@ -1,0 +1,4 @@
+MapID;Name;Shape;Position;Rotation;Unk2C;Unk40;MapStudioLayer;UnkE08;MapID;UnkS04;UnkS0C;ActivationPartName;EntityID;JumpHeight;UnkT04;
+m12_02_00_00;騎乗大ジャンプ 水没林 外れ;SoulsFormats.MSB+Shape+Sphere;<1361.816, -814.551, 1266.33>;<0, 0, 0>;132;0;4294967295;255;-1;0;-1;;12022656;40;-1;
+m12_03_00_00;騎乗大ジャンプ マリカ遺跡 ;SoulsFormats.MSB+Shape+Sphere;<-575.79, 91.57, -279.932>;<0, 0, 0>;97;0;4294967295;255;-1;0;-1;;4;20;-1;
+m12_03_00_00;騎乗大ジャンプ 霊廟エリア;SoulsFormats.MSB+Shape+Sphere;<-843.382, 75.805, -350.693>;<0, 0, 0>;220;0;4294967295;255;-1;0;-1;;0;20;-1;
