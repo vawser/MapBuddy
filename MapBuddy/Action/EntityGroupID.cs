@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using SoulsFormats;
+using System.Runtime.CompilerServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Reflection;
 
 namespace MapBuddy.Action
 {
@@ -17,7 +20,7 @@ namespace MapBuddy.Action
 
         DCX.Type compressionType = DCX.Type.DCX_DFLT_10000_44_9;
 
-        public EntityGroupID(string path)
+        public EntityGroupID(string path, bool isAssetChange, bool isEnemyChange, bool replaceExisting, string EntityGroupID, string EntityGroupIndex, bool limitByModelName_Asset, string AssetLimitString_ModelName, bool limitByModelName_Enemy, string EnemyLimitString_ModelName, bool limitByNPCParam_Enemy, string EnemyLimitString_NPCParam)
         {
             maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
             foreach (string map in maps)
@@ -26,9 +29,7 @@ namespace MapBuddy.Action
                 string map_name = Path.GetFileNameWithoutExtension(map);
                 mapDict.Add(map_name, map_path);
             }
-        }
-        public void Execute(int entity_id, int index, string chrID)
-        {
+        
             foreach (KeyValuePair<string, string> entry in mapDict)
             {
                 string map_name = entry.Key;
@@ -40,7 +41,13 @@ namespace MapBuddy.Action
 
                 MSBE msb = MSBE.Read(map_path);
 
-                msb = AddEntityGroupID(msb, map_name, entity_id, index, chrID);
+                msb = AddEntityGroupID(msb, map_name, 
+                    isAssetChange, isEnemyChange, replaceExisting, 
+                    EntityGroupID, EntityGroupIndex, 
+                    limitByModelName_Asset, AssetLimitString_ModelName, 
+                    limitByModelName_Enemy, EnemyLimitString_ModelName, 
+                    limitByNPCParam_Enemy, EnemyLimitString_NPCParam
+                );
 
                 msb.Write(map_path, compressionType);
 
@@ -48,53 +55,110 @@ namespace MapBuddy.Action
                 logger.WriteLog();
             }
 
-            MessageBox.Show($"Added specified {entity_id} at {index} for all valid enemies.", "Information", MessageBoxButtons.OK);
+            MessageBox.Show("Applied Entity Group ID according to specification.", "Information", MessageBoxButtons.OK);
         }
 
-        public MSBE AddEntityGroupID(MSBE msb, string map_name, int entity_id, int index, string chrID)
+        public MSBE AddEntityGroupID(MSBE msb, string map_name, bool isAssetChange, bool isEnemyChange, bool replaceExisting, string EntityGroupID, string EntityGroupIndex, bool limitByModelName_Asset, string AssetLimitString_ModelName, bool limitByModelName_Enemy, string EnemyLimitString_ModelName, bool limitByNPCParam_Enemy, string EnemyLimitString_NPCParam)
         {
-            // Build list of used
-            foreach (MSBE.Part.Enemy enemy in msb.Parts.Enemies)
+
+            uint entity_group_id = Convert.ToUInt32(EntityGroupID);
+            int base_entity_group_index = Convert.ToInt32(EntityGroupIndex);
+
+            if (isAssetChange)
             {
-                bool editEnemy = false;
+                string[] limitList_ModelName = AssetLimitString_ModelName.Split(";");
 
-                if (chrID != "")
+                foreach (MSBE.Part.Asset entity in msb.Parts.Assets)
                 {
-                    string[] valid_chrID = chrID.Split(";");
+                    int current_index = base_entity_group_index;
 
-                    foreach (string s in valid_chrID)
+                    // Skip this entity if it not one of the specified ModelNames if that limit is enabled
+                    if (limitByModelName_Asset && !limitList_ModelName.Contains(entity.ModelName))
                     {
-                        if (enemy.ModelName.ToString() == s)
+                        continue;
+                    }
+
+                    if (entity.EntityGroupIDs[current_index] == 0)
+                    {
+                        entity.EntityGroupIDs[current_index] = entity_group_id;
+                        logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{current_index}] for {entity.Name}.");
+                    }
+                    else
+                    {
+                        bool wasAssigned = false;
+
+                        for (int i = 0; i < entity.EntityGroupIDs.Length; i++)
                         {
-                            editEnemy = true;
+                            if (entity.EntityGroupIDs[i] == 0)
+                            {
+                                entity.EntityGroupIDs[i] = entity_group_id;
+                                logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{i}] for {entity.Name}.");
+                                wasAssigned = true;
+                                break;
+                            }
+                        }
+
+                        if(!wasAssigned)
+                        {
+                            logger.AddToLog($"No empty slots to add {entity_group_id} to EntityGroupID[{current_index}] for {entity.Name}.");
                         }
                     }
                 }
-                else
-                {
-                    editEnemy = true;
-                }
+            }
 
-                if (editEnemy)
-                {
-                    int current_index = index;
+            if (isEnemyChange)
+            {
+                string[] limitList_ModelName = EnemyLimitString_ModelName.Split(";");
+                string[] limitList_NPCParam = EnemyLimitString_NPCParam.Split(";");
 
-                    // Try assigned index first
-                    if (enemy.EntityGroupIDs[index] == 0)
+                foreach (MSBE.Part.Enemy entity in msb.Parts.Enemies)
+                {
+                    int current_index = base_entity_group_index;
+
+                    // Skip this entity if it not one of the specified ModelNames if that limit is enabled
+                    if (limitByModelName_Enemy && !limitList_ModelName.Contains(entity.ModelName))
                     {
-                        enemy.EntityGroupIDs[index] = Convert.ToUInt32(entity_id);
-                        logger.AddToLog($"Added {entity_id} to EntityGroupID[{index}] for {enemy.Name}.");
+                        continue;
                     }
-                    // Otherwise find an empty one
+
+                    // Skip this entity if it not one of the specified NPCParams if that limit is enabled
+                    if (limitByNPCParam_Enemy && !limitList_NPCParam.Contains(entity.NPCParamID.ToString()))
+                    {
+                        continue;
+                    }
+
+                    // Override existing if enabled
+                    if (replaceExisting)
+                    {
+                        entity.EntityGroupIDs[current_index] = entity_group_id;
+                        logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{current_index}] for {entity.Name}.");
+                    }
+                    // Otherwise try specified index, and if it is not empty, find next empty index if possible.
                     else
                     {
-                        for (int i = 0; i < enemy.EntityGroupIDs.Length; i++)
+                        if (entity.EntityGroupIDs[current_index] == 0)
                         {
-                            if (enemy.EntityGroupIDs[i] == 0)
+                            entity.EntityGroupIDs[current_index] = entity_group_id;
+                            logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{current_index}] for {entity.Name}.");
+                        }
+                        else
+                        {
+                            bool wasAssigned = false;
+
+                            for (int i = 0; i < entity.EntityGroupIDs.Length; i++)
                             {
-                                enemy.EntityGroupIDs[i] = Convert.ToUInt32(entity_id);
-                                logger.AddToLog($"Added {entity_id} to EntityGroupID[{i}] for {enemy.Name}.");
-                                break;
+                                if (entity.EntityGroupIDs[i] == 0)
+                                {
+                                    entity.EntityGroupIDs[i] = entity_group_id;
+                                    logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{i}] for {entity.Name}.");
+                                    wasAssigned = true;
+                                    break;
+                                }
+                            }
+
+                            if (!wasAssigned)
+                            {
+                                logger.AddToLog($"No empty slots to add {entity_group_id} to EntityGroupID[{current_index}] for {entity.Name}.");
                             }
                         }
                     }

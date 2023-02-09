@@ -37,18 +37,19 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.b_output_csv = new System.Windows.Forms.Button();
             this.c_split_by_map = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textbox_chr_id_limit = new System.Windows.Forms.TextBox();
-            this.textbox_entity_group_index = new System.Windows.Forms.TextBox();
-            this.textbox_entity_group_id = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.t_limit_asset_modelname = new System.Windows.Forms.TextBox();
+            this.t_entitygroup_index = new System.Windows.Forms.TextBox();
+            this.t_entitygroup_id = new System.Windows.Forms.TextBox();
             this.b_entityGroup_action = new System.Windows.Forms.Button();
-            this.b_uniqueEntity_action = new System.Windows.Forms.Button();
+            this.b_add_unique_entity_id = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.b_tick_all_parts = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.b_tick_all_events = new System.Windows.Forms.Button();
             this.b_tick_all_regions = new System.Windows.Forms.Button();
             this.c_region_windsfx = new System.Windows.Forms.CheckBox();
             this.c_region_windarea = new System.Windows.Forms.CheckBox();
@@ -106,13 +107,32 @@
             this.c_part_collision = new System.Windows.Forms.CheckBox();
             this.c_part_asset = new System.Windows.Forms.CheckBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
+            this.c_entityid_player = new System.Windows.Forms.CheckBox();
+            this.c_override_existing = new System.Windows.Forms.CheckBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.t_entityid_end = new System.Windows.Forms.TextBox();
+            this.t_entityid_start = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.c_entityid_enemy = new System.Windows.Forms.CheckBox();
+            this.c_entityid_asset = new System.Windows.Forms.CheckBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.b_tick_all_events = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.b_tick_all_parts = new System.Windows.Forms.Button();
+            this.c_limit_enemy_npcparam = new System.Windows.Forms.CheckBox();
+            this.t_limit_enemy_npcparam = new System.Windows.Forms.TextBox();
+            this.c_limit_enemy_modelname = new System.Windows.Forms.CheckBox();
+            this.t_limit_enemy_modelname = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.c_limit_asset_modelname = new System.Windows.Forms.CheckBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.c_entitygroup_enemy = new System.Windows.Forms.CheckBox();
+            this.c_entitygroup_asset = new System.Windows.Forms.CheckBox();
+            this.c_entitygroup_replace_existing = new System.Windows.Forms.CheckBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage9.SuspendLayout();
@@ -134,14 +154,14 @@
             this.textbox_mod_folder.Location = new System.Drawing.Point(8, 37);
             this.textbox_mod_folder.Name = "textbox_mod_folder";
             this.textbox_mod_folder.ReadOnly = true;
-            this.textbox_mod_folder.Size = new System.Drawing.Size(536, 23);
+            this.textbox_mod_folder.Size = new System.Drawing.Size(552, 23);
             this.textbox_mod_folder.TabIndex = 1;
             // 
             // buttom_select_folder
             // 
             this.buttom_select_folder.Location = new System.Drawing.Point(8, 66);
             this.buttom_select_folder.Name = "buttom_select_folder";
-            this.buttom_select_folder.Size = new System.Drawing.Size(536, 23);
+            this.buttom_select_folder.Size = new System.Drawing.Size(552, 23);
             this.buttom_select_folder.TabIndex = 3;
             this.buttom_select_folder.Text = "Select Folder";
             this.buttom_select_folder.UseVisualStyleBackColor = true;
@@ -154,7 +174,7 @@
             this.groupBox3.Controls.Add(this.buttom_select_folder);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(550, 102);
+            this.groupBox3.Size = new System.Drawing.Size(576, 102);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Configuration";
@@ -179,16 +199,6 @@
             this.c_split_by_map.Text = "Split by Map";
             this.c_split_by_map.UseVisualStyleBackColor = true;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(255, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(200, 75);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Add the specified Entity Group ID \r\nat the specified index.\r\n\r\nYou may limit the " +
-    "assignment to \r\nspecific ChrID by listing them below.";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -197,73 +207,46 @@
             this.label6.Size = new System.Drawing.Size(0, 15);
             this.label6.TabIndex = 11;
             // 
-            // textbox_chr_id_limit
+            // t_limit_asset_modelname
             // 
-            this.textbox_chr_id_limit.Location = new System.Drawing.Point(6, 138);
-            this.textbox_chr_id_limit.Name = "textbox_chr_id_limit";
-            this.textbox_chr_id_limit.Size = new System.Drawing.Size(243, 23);
-            this.textbox_chr_id_limit.TabIndex = 9;
+            this.t_limit_asset_modelname.Location = new System.Drawing.Point(6, 176);
+            this.t_limit_asset_modelname.Name = "t_limit_asset_modelname";
+            this.t_limit_asset_modelname.Size = new System.Drawing.Size(274, 23);
+            this.t_limit_asset_modelname.TabIndex = 9;
             // 
-            // textbox_entity_group_index
+            // t_entitygroup_index
             // 
-            this.textbox_entity_group_index.Location = new System.Drawing.Point(6, 94);
-            this.textbox_entity_group_index.Name = "textbox_entity_group_index";
-            this.textbox_entity_group_index.Size = new System.Drawing.Size(243, 23);
-            this.textbox_entity_group_index.TabIndex = 7;
+            this.t_entitygroup_index.Location = new System.Drawing.Point(286, 118);
+            this.t_entitygroup_index.Name = "t_entitygroup_index";
+            this.t_entitygroup_index.Size = new System.Drawing.Size(274, 23);
+            this.t_entitygroup_index.TabIndex = 7;
             // 
-            // textbox_entity_group_id
+            // t_entitygroup_id
             // 
-            this.textbox_entity_group_id.Location = new System.Drawing.Point(6, 50);
-            this.textbox_entity_group_id.Name = "textbox_entity_group_id";
-            this.textbox_entity_group_id.Size = new System.Drawing.Size(243, 23);
-            this.textbox_entity_group_id.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Limit by ChrID";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Entity Group Index";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Entity Group ID";
+            this.t_entitygroup_id.Location = new System.Drawing.Point(6, 118);
+            this.t_entitygroup_id.Name = "t_entitygroup_id";
+            this.t_entitygroup_id.Size = new System.Drawing.Size(274, 23);
+            this.t_entitygroup_id.TabIndex = 5;
             // 
             // b_entityGroup_action
             // 
             this.b_entityGroup_action.Location = new System.Drawing.Point(6, 6);
             this.b_entityGroup_action.Name = "b_entityGroup_action";
-            this.b_entityGroup_action.Size = new System.Drawing.Size(243, 23);
+            this.b_entityGroup_action.Size = new System.Drawing.Size(274, 23);
             this.b_entityGroup_action.TabIndex = 3;
             this.b_entityGroup_action.Text = "Add Entity Group ID";
             this.b_entityGroup_action.UseVisualStyleBackColor = true;
             this.b_entityGroup_action.Click += new System.EventHandler(this.b_entityGroup_action_Click);
             // 
-            // b_uniqueEntity_action
+            // b_add_unique_entity_id
             // 
-            this.b_uniqueEntity_action.Location = new System.Drawing.Point(6, 7);
-            this.b_uniqueEntity_action.Name = "b_uniqueEntity_action";
-            this.b_uniqueEntity_action.Size = new System.Drawing.Size(243, 23);
-            this.b_uniqueEntity_action.TabIndex = 2;
-            this.b_uniqueEntity_action.Text = "Add Unique Entity ID to All";
-            this.b_uniqueEntity_action.UseVisualStyleBackColor = true;
-            this.b_uniqueEntity_action.Click += new System.EventHandler(this.b_uniqueEntity_action_Click);
+            this.b_add_unique_entity_id.Location = new System.Drawing.Point(6, 7);
+            this.b_add_unique_entity_id.Name = "b_add_unique_entity_id";
+            this.b_add_unique_entity_id.Size = new System.Drawing.Size(274, 23);
+            this.b_add_unique_entity_id.TabIndex = 2;
+            this.b_add_unique_entity_id.Text = "Add Unique Entity ID";
+            this.b_add_unique_entity_id.UseVisualStyleBackColor = true;
+            this.b_add_unique_entity_id.Click += new System.EventHandler(this.b_uniqueEntity_action_Click);
             // 
             // tabControl2
             // 
@@ -273,7 +256,7 @@
             this.tabControl2.Location = new System.Drawing.Point(12, 120);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(599, 651);
+            this.tabControl2.Size = new System.Drawing.Size(580, 651);
             this.tabControl2.TabIndex = 10;
             // 
             // tabPage9
@@ -344,11 +327,57 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(591, 623);
+            this.tabPage9.Size = new System.Drawing.Size(572, 623);
             this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "Data";
+            this.tabPage9.Text = "Data Export";
             this.tabPage9.UseVisualStyleBackColor = true;
-            this.tabPage9.Click += new System.EventHandler(this.tabPage9_Click);
+            // 
+            // b_tick_all_parts
+            // 
+            this.b_tick_all_parts.Location = new System.Drawing.Point(481, 83);
+            this.b_tick_all_parts.Name = "b_tick_all_parts";
+            this.b_tick_all_parts.Size = new System.Drawing.Size(75, 23);
+            this.b_tick_all_parts.TabIndex = 79;
+            this.b_tick_all_parts.Text = "Tick All";
+            this.b_tick_all_parts.UseVisualStyleBackColor = true;
+            this.b_tick_all_parts.Click += new System.EventHandler(this.b_tick_all_parts_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(17, 83);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(459, 23);
+            this.textBox3.TabIndex = 78;
+            this.textBox3.Text = " Parts";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(17, 169);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(459, 23);
+            this.textBox2.TabIndex = 77;
+            this.textBox2.Text = " Events";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(17, 280);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(459, 23);
+            this.textBox1.TabIndex = 76;
+            this.textBox1.Text = " Regions";
+            // 
+            // b_tick_all_events
+            // 
+            this.b_tick_all_events.Location = new System.Drawing.Point(481, 168);
+            this.b_tick_all_events.Name = "b_tick_all_events";
+            this.b_tick_all_events.Size = new System.Drawing.Size(75, 23);
+            this.b_tick_all_events.TabIndex = 75;
+            this.b_tick_all_events.Text = "Tick All";
+            this.b_tick_all_events.UseVisualStyleBackColor = true;
+            this.b_tick_all_events.Click += new System.EventHandler(this.b_tick_all_events_Click);
             // 
             // b_tick_all_regions
             // 
@@ -912,96 +941,294 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.label5);
-            this.tabPage8.Controls.Add(this.b_uniqueEntity_action);
+            this.tabPage8.Controls.Add(this.c_entityid_player);
+            this.tabPage8.Controls.Add(this.c_override_existing);
+            this.tabPage8.Controls.Add(this.textBox8);
+            this.tabPage8.Controls.Add(this.t_entityid_end);
+            this.tabPage8.Controls.Add(this.t_entityid_start);
+            this.tabPage8.Controls.Add(this.textBox7);
+            this.tabPage8.Controls.Add(this.textBox6);
+            this.tabPage8.Controls.Add(this.textBox5);
+            this.tabPage8.Controls.Add(this.c_entityid_enemy);
+            this.tabPage8.Controls.Add(this.c_entityid_asset);
+            this.tabPage8.Controls.Add(this.textBox4);
+            this.tabPage8.Controls.Add(this.b_add_unique_entity_id);
             this.tabPage8.Location = new System.Drawing.Point(4, 24);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(591, 623);
+            this.tabPage8.Size = new System.Drawing.Size(572, 623);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "Entity ID Tool";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // c_entityid_player
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(255, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(283, 15);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Add a unique entity ID to all enemies that lack them.";
+            this.c_entityid_player.AutoSize = true;
+            this.c_entityid_player.Location = new System.Drawing.Point(146, 65);
+            this.c_entityid_player.Name = "c_entityid_player";
+            this.c_entityid_player.Size = new System.Drawing.Size(58, 19);
+            this.c_entityid_player.TabIndex = 89;
+            this.c_entityid_player.Text = "Player";
+            this.c_entityid_player.UseVisualStyleBackColor = true;
+            this.c_entityid_player.CheckedChanged += new System.EventHandler(this.c_entityid_player_CheckedChanged);
+            // 
+            // c_override_existing
+            // 
+            this.c_override_existing.AutoSize = true;
+            this.c_override_existing.Location = new System.Drawing.Point(290, 65);
+            this.c_override_existing.Name = "c_override_existing";
+            this.c_override_existing.Size = new System.Drawing.Size(130, 19);
+            this.c_override_existing.TabIndex = 88;
+            this.c_override_existing.Text = "Replace Existing IDs";
+            this.c_override_existing.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(286, 36);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(274, 23);
+            this.textBox8.TabIndex = 87;
+            this.textBox8.Text = " Options";
+            // 
+            // t_entityid_end
+            // 
+            this.t_entityid_end.Location = new System.Drawing.Point(426, 119);
+            this.t_entityid_end.Name = "t_entityid_end";
+            this.t_entityid_end.Size = new System.Drawing.Size(134, 23);
+            this.t_entityid_end.TabIndex = 86;
+            // 
+            // t_entityid_start
+            // 
+            this.t_entityid_start.Location = new System.Drawing.Point(146, 119);
+            this.t_entityid_start.Name = "t_entityid_start";
+            this.t_entityid_start.Size = new System.Drawing.Size(134, 23);
+            this.t_entityid_start.TabIndex = 85;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(286, 119);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(134, 23);
+            this.textBox7.TabIndex = 84;
+            this.textBox7.Text = " End";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(6, 119);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(134, 23);
+            this.textBox6.TabIndex = 83;
+            this.textBox6.Text = " Start";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(6, 90);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(554, 23);
+            this.textBox5.TabIndex = 82;
+            this.textBox5.Text = " Entity ID Range";
+            // 
+            // c_entityid_enemy
+            // 
+            this.c_entityid_enemy.AutoSize = true;
+            this.c_entityid_enemy.Location = new System.Drawing.Point(78, 65);
+            this.c_entityid_enemy.Name = "c_entityid_enemy";
+            this.c_entityid_enemy.Size = new System.Drawing.Size(62, 19);
+            this.c_entityid_enemy.TabIndex = 81;
+            this.c_entityid_enemy.Text = "Enemy";
+            this.c_entityid_enemy.UseVisualStyleBackColor = true;
+            this.c_entityid_enemy.CheckedChanged += new System.EventHandler(this.c_entityid_enemy_CheckedChanged);
+            // 
+            // c_entityid_asset
+            // 
+            this.c_entityid_asset.AutoSize = true;
+            this.c_entityid_asset.Location = new System.Drawing.Point(18, 65);
+            this.c_entityid_asset.Name = "c_entityid_asset";
+            this.c_entityid_asset.Size = new System.Drawing.Size(54, 19);
+            this.c_entityid_asset.TabIndex = 80;
+            this.c_entityid_asset.Text = "Asset";
+            this.c_entityid_asset.UseVisualStyleBackColor = true;
+            this.c_entityid_asset.CheckedChanged += new System.EventHandler(this.c_entityid_asset_CheckedChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 36);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(274, 23);
+            this.textBox4.TabIndex = 79;
+            this.textBox4.Text = " Apply to:";
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.c_limit_enemy_npcparam);
+            this.tabPage1.Controls.Add(this.t_limit_enemy_npcparam);
+            this.tabPage1.Controls.Add(this.c_limit_enemy_modelname);
+            this.tabPage1.Controls.Add(this.t_limit_enemy_modelname);
+            this.tabPage1.Controls.Add(this.textBox14);
+            this.tabPage1.Controls.Add(this.c_limit_asset_modelname);
+            this.tabPage1.Controls.Add(this.textBox13);
+            this.tabPage1.Controls.Add(this.textBox12);
+            this.tabPage1.Controls.Add(this.textBox11);
+            this.tabPage1.Controls.Add(this.c_entitygroup_enemy);
+            this.tabPage1.Controls.Add(this.c_entitygroup_asset);
+            this.tabPage1.Controls.Add(this.c_entitygroup_replace_existing);
+            this.tabPage1.Controls.Add(this.textBox10);
+            this.tabPage1.Controls.Add(this.textBox9);
             this.tabPage1.Controls.Add(this.b_entityGroup_action);
-            this.tabPage1.Controls.Add(this.textbox_chr_id_limit);
-            this.tabPage1.Controls.Add(this.textbox_entity_group_index);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textbox_entity_group_id);
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.t_limit_asset_modelname);
+            this.tabPage1.Controls.Add(this.t_entitygroup_index);
+            this.tabPage1.Controls.Add(this.t_entitygroup_id);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(591, 623);
+            this.tabPage1.Size = new System.Drawing.Size(572, 623);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Entity Group Tool";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // b_tick_all_events
+            // c_limit_enemy_npcparam
             // 
-            this.b_tick_all_events.Location = new System.Drawing.Point(481, 168);
-            this.b_tick_all_events.Name = "b_tick_all_events";
-            this.b_tick_all_events.Size = new System.Drawing.Size(75, 23);
-            this.b_tick_all_events.TabIndex = 75;
-            this.b_tick_all_events.Text = "Tick All";
-            this.b_tick_all_events.UseVisualStyleBackColor = true;
-            this.b_tick_all_events.Click += new System.EventHandler(this.b_tick_all_events_Click);
+            this.c_limit_enemy_npcparam.AutoSize = true;
+            this.c_limit_enemy_npcparam.Location = new System.Drawing.Point(293, 265);
+            this.c_limit_enemy_npcparam.Name = "c_limit_enemy_npcparam";
+            this.c_limit_enemy_npcparam.Size = new System.Drawing.Size(130, 19);
+            this.c_limit_enemy_npcparam.TabIndex = 100;
+            this.c_limit_enemy_npcparam.Text = "Limit by NPCParam";
+            this.c_limit_enemy_npcparam.UseVisualStyleBackColor = true;
+            this.c_limit_enemy_npcparam.CheckedChanged += new System.EventHandler(this.c_limit_enemy_npcparam_CheckedChanged);
             // 
-            // textBox1
+            // t_limit_enemy_npcparam
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 280);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(459, 23);
-            this.textBox1.TabIndex = 76;
-            this.textBox1.Text = " Regions";
+            this.t_limit_enemy_npcparam.Location = new System.Drawing.Point(6, 263);
+            this.t_limit_enemy_npcparam.Name = "t_limit_enemy_npcparam";
+            this.t_limit_enemy_npcparam.Size = new System.Drawing.Size(274, 23);
+            this.t_limit_enemy_npcparam.TabIndex = 99;
             // 
-            // textBox2
+            // c_limit_enemy_modelname
             // 
-            this.textBox2.Location = new System.Drawing.Point(17, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(459, 23);
-            this.textBox2.TabIndex = 77;
-            this.textBox2.Text = " Events";
+            this.c_limit_enemy_modelname.AutoSize = true;
+            this.c_limit_enemy_modelname.Location = new System.Drawing.Point(293, 236);
+            this.c_limit_enemy_modelname.Name = "c_limit_enemy_modelname";
+            this.c_limit_enemy_modelname.Size = new System.Drawing.Size(138, 19);
+            this.c_limit_enemy_modelname.TabIndex = 98;
+            this.c_limit_enemy_modelname.Text = "Limit by ModelName";
+            this.c_limit_enemy_modelname.UseVisualStyleBackColor = true;
+            this.c_limit_enemy_modelname.CheckedChanged += new System.EventHandler(this.c_limit_enemy_modelname_CheckedChanged);
             // 
-            // textBox3
+            // t_limit_enemy_modelname
             // 
-            this.textBox3.Location = new System.Drawing.Point(17, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(459, 23);
-            this.textBox3.TabIndex = 78;
-            this.textBox3.Text = " Parts";
+            this.t_limit_enemy_modelname.Location = new System.Drawing.Point(6, 234);
+            this.t_limit_enemy_modelname.Name = "t_limit_enemy_modelname";
+            this.t_limit_enemy_modelname.Size = new System.Drawing.Size(274, 23);
+            this.t_limit_enemy_modelname.TabIndex = 97;
             // 
-            // b_tick_all_parts
+            // textBox14
             // 
-            this.b_tick_all_parts.Location = new System.Drawing.Point(481, 83);
-            this.b_tick_all_parts.Name = "b_tick_all_parts";
-            this.b_tick_all_parts.Size = new System.Drawing.Size(75, 23);
-            this.b_tick_all_parts.TabIndex = 79;
-            this.b_tick_all_parts.Text = "Tick All";
-            this.b_tick_all_parts.UseVisualStyleBackColor = true;
-            this.b_tick_all_parts.Click += new System.EventHandler(this.b_tick_all_parts_Click);
+            this.textBox14.Location = new System.Drawing.Point(6, 205);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(554, 23);
+            this.textBox14.TabIndex = 96;
+            this.textBox14.Text = " Enemy: Application Conditions";
+            // 
+            // c_limit_asset_modelname
+            // 
+            this.c_limit_asset_modelname.AutoSize = true;
+            this.c_limit_asset_modelname.Location = new System.Drawing.Point(293, 176);
+            this.c_limit_asset_modelname.Name = "c_limit_asset_modelname";
+            this.c_limit_asset_modelname.Size = new System.Drawing.Size(138, 19);
+            this.c_limit_asset_modelname.TabIndex = 95;
+            this.c_limit_asset_modelname.Text = "Limit by ModelName";
+            this.c_limit_asset_modelname.UseVisualStyleBackColor = true;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(6, 147);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(554, 23);
+            this.textBox13.TabIndex = 94;
+            this.textBox13.Text = " Asset: Application Conditions";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(286, 89);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(274, 23);
+            this.textBox12.TabIndex = 93;
+            this.textBox12.Text = " Entity Group Index to Place In";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(6, 89);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(274, 23);
+            this.textBox11.TabIndex = 92;
+            this.textBox11.Text = " Entity Group ID to Apply";
+            // 
+            // c_entitygroup_enemy
+            // 
+            this.c_entitygroup_enemy.AutoSize = true;
+            this.c_entitygroup_enemy.Location = new System.Drawing.Point(78, 64);
+            this.c_entitygroup_enemy.Name = "c_entitygroup_enemy";
+            this.c_entitygroup_enemy.Size = new System.Drawing.Size(62, 19);
+            this.c_entitygroup_enemy.TabIndex = 91;
+            this.c_entitygroup_enemy.Text = "Enemy";
+            this.c_entitygroup_enemy.UseVisualStyleBackColor = true;
+            this.c_entitygroup_enemy.CheckedChanged += new System.EventHandler(this.c_entitygroup_enemy_CheckedChanged);
+            // 
+            // c_entitygroup_asset
+            // 
+            this.c_entitygroup_asset.AutoSize = true;
+            this.c_entitygroup_asset.Location = new System.Drawing.Point(18, 64);
+            this.c_entitygroup_asset.Name = "c_entitygroup_asset";
+            this.c_entitygroup_asset.Size = new System.Drawing.Size(54, 19);
+            this.c_entitygroup_asset.TabIndex = 90;
+            this.c_entitygroup_asset.Text = "Asset";
+            this.c_entitygroup_asset.UseVisualStyleBackColor = true;
+            this.c_entitygroup_asset.CheckedChanged += new System.EventHandler(this.c_entitygroup_asset_CheckedChanged);
+            // 
+            // c_entitygroup_replace_existing
+            // 
+            this.c_entitygroup_replace_existing.AutoSize = true;
+            this.c_entitygroup_replace_existing.Location = new System.Drawing.Point(293, 64);
+            this.c_entitygroup_replace_existing.Name = "c_entitygroup_replace_existing";
+            this.c_entitygroup_replace_existing.Size = new System.Drawing.Size(130, 19);
+            this.c_entitygroup_replace_existing.TabIndex = 89;
+            this.c_entitygroup_replace_existing.Text = "Replace Existing IDs";
+            this.c_entitygroup_replace_existing.UseVisualStyleBackColor = true;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(286, 35);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(274, 23);
+            this.textBox10.TabIndex = 88;
+            this.textBox10.Text = " Options";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(6, 35);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(274, 23);
+            this.textBox9.TabIndex = 80;
+            this.textBox9.Text = " Apply to:";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 783);
+            this.ClientSize = new System.Drawing.Size(603, 783);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1030,21 +1257,16 @@
         private GroupBox groupBox3;
         private Button b_output_csv;
         private Label label6;
-        private TextBox textbox_chr_id_limit;
-        private TextBox textbox_entity_group_index;
-        private TextBox textbox_entity_group_id;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private TextBox t_limit_asset_modelname;
+        private TextBox t_entitygroup_index;
+        private TextBox t_entitygroup_id;
         private Button b_entityGroup_action;
-        private Button b_uniqueEntity_action;
-        private Label label8;
+        private Button b_add_unique_entity_id;
         private CheckBox c_split_by_map;
         private TabControl tabControl2;
         private TabPage tabPage8;
         private TabPage tabPage9;
         private TabPage tabPage1;
-        private Label label5;
         private CheckBox c_part_player;
         private CheckBox c_part_mappiece;
         private CheckBox c_part_enemy;
@@ -1106,5 +1328,30 @@
         private Button b_tick_all_parts;
         private TextBox textBox3;
         private TextBox textBox2;
+        private TextBox textBox4;
+        private CheckBox c_entityid_enemy;
+        private CheckBox c_entityid_asset;
+        private TextBox t_entityid_start;
+        private TextBox textBox7;
+        private TextBox textBox6;
+        private TextBox textBox5;
+        private TextBox t_entityid_end;
+        private CheckBox c_override_existing;
+        private TextBox textBox8;
+        private CheckBox c_entityid_player;
+        private TextBox textBox12;
+        private TextBox textBox11;
+        private CheckBox c_entitygroup_enemy;
+        private CheckBox c_entitygroup_asset;
+        private CheckBox c_entitygroup_replace_existing;
+        private TextBox textBox10;
+        private TextBox textBox9;
+        private CheckBox c_limit_asset_modelname;
+        private TextBox textBox13;
+        private CheckBox c_limit_enemy_modelname;
+        private TextBox t_limit_enemy_modelname;
+        private TextBox textBox14;
+        private CheckBox c_limit_enemy_npcparam;
+        private TextBox t_limit_enemy_npcparam;
     }
 }

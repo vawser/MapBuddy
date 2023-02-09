@@ -31,12 +31,13 @@ namespace MapBuddy
 
             File.WriteAllText(log_dir + $"log.txt", "");
 
-            // Tooltips
-            ToolTip tooltip_1 = CreateTooltip(label2, "Example: \n40005000");
-            ToolTip tooltip_2 = CreateTooltip(label3, "Example: \n1");
-            ToolTip tooltip_3 = CreateTooltip(label4, "Example: \nc2000\nc2000;c2010");
+            c_entityid_enemy.Checked = true;
+            t_entityid_start.Text = "100";
+            t_entityid_end.Text = "800";
 
-
+            c_entitygroup_enemy.Checked = true;
+            t_entitygroup_id.Text = "40005000";
+            t_entitygroup_index.Text = "0";
         }
 
         private ToolTip CreateTooltip(Label label, string text)
@@ -69,25 +70,144 @@ namespace MapBuddy
 
         private void b_uniqueEntity_action_Click(object sender, EventArgs e)
         {
-            EntityID action = new EntityID(mod_folder);
-            action.Execute();
+            string start_id = t_entityid_start.Text;
+            string end_id = t_entityid_end.Text;
+
+            if (!c_entityid_asset.Checked && !c_entityid_enemy.Checked && !c_entityid_player.Checked)
+            {
+                MessageBox.Show($"No property type selected.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if(!IsDigitsOnly(start_id))
+            {
+                MessageBox.Show($"Start ID is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (!IsDigitsOnly(end_id))
+            {
+                MessageBox.Show($"End ID is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (start_id == "" || end_id == "")
+            {
+                MessageBox.Show($"Start/End ID is empty.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            int start_id_num = Convert.ToInt32(start_id);
+            int end_id_num = Convert.ToInt32(end_id);
+
+            if(end_id_num < start_id_num)
+            {
+                MessageBox.Show($"End ID is smaller than Start ID.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (end_id_num == start_id_num)
+            {
+                MessageBox.Show($"End ID is equal to the Start ID.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (start_id_num >= 10000)
+            {
+                MessageBox.Show($"Start ID cannot be bigger than 10,000.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (end_id_num >= 10000)
+            {
+                MessageBox.Show($"Start ID cannot be bigger than 10,000.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            EntityID action = new EntityID(
+                mod_folder, 
+                c_entityid_asset.Checked, 
+                c_entityid_enemy.Checked, 
+                c_entityid_player.Checked,
+                c_override_existing.Checked, 
+                Convert.ToInt32(t_entityid_start.Text),
+                Convert.ToInt32(t_entityid_end.Text)
+            );
+        }
+
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
 
         private void b_entityGroup_action_Click(object sender, EventArgs e)
         {
+            if (!c_entitygroup_asset.Checked && !c_entitygroup_enemy.Checked)
+            {
+                MessageBox.Show($"No property type selected.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (!IsDigitsOnly(t_entitygroup_id.Text))
+            {
+                MessageBox.Show($"Entity Group ID is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (t_entitygroup_id.Text == "")
+            {
+                MessageBox.Show($"Entity Group ID is empty.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (!IsDigitsOnly(t_entitygroup_index.Text))
+            {
+                MessageBox.Show($"Entity Group Index is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (t_entitygroup_index.Text == "")
+            {
+                MessageBox.Show($"Entity Group Index is empty.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             try
             {
-                int index = Convert.ToInt32(textbox_entity_group_index.Text);
-                int entity_id = Convert.ToInt32(textbox_entity_group_id.Text);
-                string chrID = textbox_chr_id_limit.Text;
-
-                EntityGroupID action = new EntityGroupID(mod_folder);
-                action.Execute(entity_id, index, chrID);
+                int entitygroup_id = Convert.ToInt32(t_entitygroup_id.Text);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show($"Paramters not set correctly.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show($"Entity Group ID is too high.", "Error", MessageBoxButtons.OK);
+                return;
             }
+
+            try
+            {
+                int entitygroup_index = Convert.ToInt32(t_entitygroup_index.Text);
+
+                if (entitygroup_index > 7 || entitygroup_index < 0)
+                {
+                    MessageBox.Show($"Entity Group Index must be between 0 and 7.", "Error", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Entity Group ID is too high.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            EntityGroupID action = new EntityGroupID(
+                mod_folder,
+                c_entitygroup_asset.Checked,
+                c_entitygroup_enemy.Checked,
+                c_entitygroup_replace_existing.Checked,
+                t_entitygroup_id.Text,
+                t_entitygroup_index.Text,
+                c_limit_asset_modelname.Checked,
+                t_limit_asset_modelname.Text,
+                c_limit_enemy_modelname.Checked,
+                t_limit_enemy_modelname.Text,
+                c_limit_enemy_npcparam.Checked,
+                t_limit_enemy_npcparam.Text
+            );
         }
 
         private void b_output_csv_Click(object sender, EventArgs e)
@@ -161,11 +281,6 @@ namespace MapBuddy
             MapInfo action = new MapInfo(mod_folder, part_elements, event_elements, region_elements, c_split_by_map.Checked);
         }
 
-        private void tabPage9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void b_tick_all_parts_Click(object sender, EventArgs e)
         {
             c_part_asset.Checked = !c_part_asset.Checked;
@@ -232,6 +347,65 @@ namespace MapBuddy
             c_region_weatheroverride.Checked = !c_region_weatheroverride.Checked;
             c_region_windarea.Checked = !c_region_windarea.Checked;
             c_region_windsfx.Checked = !c_region_windsfx.Checked;
+        }
+
+        private void c_entityid_asset_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_entityid_asset.Checked)
+            {
+                c_entityid_enemy.Checked = false;
+                c_entityid_player.Checked = false;
+            }
+        }
+
+        private void c_entityid_enemy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_entityid_enemy.Checked)
+            {
+                c_entityid_asset.Checked = false;
+                c_entityid_player.Checked = false;
+            }
+        }
+
+        private void c_entityid_player_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_entityid_player.Checked)
+            {
+                c_entityid_enemy.Checked = false;
+                c_entityid_asset.Checked = false;
+            }
+        }
+
+        private void c_limit_enemy_npcparam_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_limit_enemy_npcparam.Checked)
+            {
+                c_limit_enemy_modelname.Checked = false;
+            }
+        }
+
+        private void c_limit_enemy_modelname_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_limit_enemy_modelname.Checked)
+            {
+                c_limit_enemy_npcparam.Checked = false;
+            }
+        }
+
+        private void c_entitygroup_asset_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_entitygroup_asset.Checked)
+            {
+                c_entitygroup_enemy.Checked = false;
+            }
+        }
+
+        private void c_entitygroup_enemy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_entitygroup_enemy.Checked)
+            {
+                c_entitygroup_asset.Checked = false;
+            }
         }
     }
 }
