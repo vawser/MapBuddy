@@ -13,5 +13,11 @@
       <HintPath>..\..\Scrambler\SoulsFormats\SoulsFormats\bin\Debug\net7.0-windows\SoulsFormats.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="Resources\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>

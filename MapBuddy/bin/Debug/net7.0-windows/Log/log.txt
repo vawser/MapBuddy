@@ -1,4 +1,0 @@
-Written Enemy data to C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\\Log\\Part\Enemy\
-Written Asset data to C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\\Log\\Part\Asset\
-Written Asset data to C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\\Log\\Part\Asset\
-Written Asset data to C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\\Log\\Part\Asset\

@@ -33,6 +33,7 @@ namespace MapBuddy
 
             File.WriteAllText(log_dir + $"log.txt", "");
 
+            // Defaults
             c_entityid_enemy.Checked = true;
             t_entityid_start.Text = "100";
             t_entityid_end.Text = "800";
@@ -40,6 +41,13 @@ namespace MapBuddy
             c_entitygroup_enemy.Checked = true;
             t_entitygroup_id.Text = "40005000";
             t_entitygroup_index.Text = "0";
+
+            c_ignore_boss.Checked = true;
+            c_ignore_player.Checked = true;
+            c_ignore_passive.Checked = true;
+            c_ignore_script.Checked = true;
+
+            t_dupe_count.Text = "1";
 
             UpdateMapSelection(mod_folder);
         }
@@ -97,6 +105,23 @@ namespace MapBuddy
 
                 UpdateMapSelection(mod_folder);
             }
+        }
+
+        private void b_enemy_dupe_Click(object sender, EventArgs e)
+        {
+            EnemyDupe action = new EnemyDupe(
+                cb_map_select.Text,
+                mod_folder,
+                t_dupe_count.Text,
+                c_dupe_ignore_list.Checked,
+                t_dupe_ignore_list.Text,
+                c_dupe_include_list.Checked,
+                t_dupe_include_list.Text,
+                c_ignore_boss.Checked,
+                c_ignore_player.Checked,
+                c_ignore_passive.Checked,
+                c_ignore_script.Checked
+            );
         }
 
         private void b_uniqueEntity_action_Click(object sender, EventArgs e)
@@ -445,6 +470,22 @@ namespace MapBuddy
             if (c_entitygroup_enemy.Checked)
             {
                 c_entitygroup_asset.Checked = false;
+            }
+        }
+
+        private void c_dupe_ignore_list_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_dupe_ignore_list.Checked)
+            {
+                c_dupe_include_list.Checked = false;
+            }
+        }
+
+        private void c_dupe_include_list_CheckedChanged(object sender, EventArgs e)
+        {
+            if (c_dupe_include_list.Checked)
+            {
+                c_dupe_ignore_list.Checked = false;
             }
         }
     }

@@ -135,11 +135,26 @@
             this.c_entitygroup_replace_existing = new System.Windows.Forms.CheckBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.c_ignore_passive = new System.Windows.Forms.CheckBox();
+            this.c_ignore_player = new System.Windows.Forms.CheckBox();
+            this.c_ignore_script = new System.Windows.Forms.CheckBox();
+            this.c_ignore_boss = new System.Windows.Forms.CheckBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.c_dupe_include_list = new System.Windows.Forms.CheckBox();
+            this.c_dupe_ignore_list = new System.Windows.Forms.CheckBox();
+            this.t_dupe_include_list = new System.Windows.Forms.TextBox();
+            this.t_dupe_ignore_list = new System.Windows.Forms.TextBox();
+            this.b_enemy_dupe = new System.Windows.Forms.Button();
+            this.t_dupe_count = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -275,6 +290,7 @@
             this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
             this.tabControl2.Location = new System.Drawing.Point(12, 120);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1246,6 +1262,149 @@
             this.textBox9.TabIndex = 80;
             this.textBox9.Text = " Apply to:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.textBox19);
+            this.tabPage2.Controls.Add(this.t_dupe_count);
+            this.tabPage2.Controls.Add(this.textBox17);
+            this.tabPage2.Controls.Add(this.c_ignore_passive);
+            this.tabPage2.Controls.Add(this.c_ignore_player);
+            this.tabPage2.Controls.Add(this.c_ignore_script);
+            this.tabPage2.Controls.Add(this.c_ignore_boss);
+            this.tabPage2.Controls.Add(this.textBox16);
+            this.tabPage2.Controls.Add(this.c_dupe_include_list);
+            this.tabPage2.Controls.Add(this.c_dupe_ignore_list);
+            this.tabPage2.Controls.Add(this.t_dupe_include_list);
+            this.tabPage2.Controls.Add(this.t_dupe_ignore_list);
+            this.tabPage2.Controls.Add(this.b_enemy_dupe);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(572, 623);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Enemy Duplication";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(6, 123);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(550, 23);
+            this.textBox17.TabIndex = 102;
+            this.textBox17.Text = " Ignore Targets";
+            // 
+            // c_ignore_passive
+            // 
+            this.c_ignore_passive.AutoSize = true;
+            this.c_ignore_passive.Location = new System.Drawing.Point(254, 152);
+            this.c_ignore_passive.Name = "c_ignore_passive";
+            this.c_ignore_passive.Size = new System.Drawing.Size(130, 19);
+            this.c_ignore_passive.TabIndex = 101;
+            this.c_ignore_passive.Text = "Ignore Wildlife Type";
+            this.c_ignore_passive.UseVisualStyleBackColor = true;
+            // 
+            // c_ignore_player
+            // 
+            this.c_ignore_player.AutoSize = true;
+            this.c_ignore_player.Location = new System.Drawing.Point(126, 152);
+            this.c_ignore_player.Name = "c_ignore_player";
+            this.c_ignore_player.Size = new System.Drawing.Size(122, 19);
+            this.c_ignore_player.TabIndex = 100;
+            this.c_ignore_player.Text = "Ignore Player Type";
+            this.c_ignore_player.UseVisualStyleBackColor = true;
+            // 
+            // c_ignore_script
+            // 
+            this.c_ignore_script.AutoSize = true;
+            this.c_ignore_script.Location = new System.Drawing.Point(390, 152);
+            this.c_ignore_script.Name = "c_ignore_script";
+            this.c_ignore_script.Size = new System.Drawing.Size(120, 19);
+            this.c_ignore_script.TabIndex = 99;
+            this.c_ignore_script.Text = "Ignore Script Type";
+            this.c_ignore_script.UseVisualStyleBackColor = true;
+            // 
+            // c_ignore_boss
+            // 
+            this.c_ignore_boss.AutoSize = true;
+            this.c_ignore_boss.Location = new System.Drawing.Point(6, 152);
+            this.c_ignore_boss.Name = "c_ignore_boss";
+            this.c_ignore_boss.Size = new System.Drawing.Size(114, 19);
+            this.c_ignore_boss.TabIndex = 98;
+            this.c_ignore_boss.Text = "Ignore Boss Type";
+            this.c_ignore_boss.UseVisualStyleBackColor = true;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(6, 38);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(550, 23);
+            this.textBox16.TabIndex = 97;
+            this.textBox16.Text = " Dupe Targets";
+            // 
+            // c_dupe_include_list
+            // 
+            this.c_dupe_include_list.AutoSize = true;
+            this.c_dupe_include_list.Location = new System.Drawing.Point(291, 96);
+            this.c_dupe_include_list.Name = "c_dupe_include_list";
+            this.c_dupe_include_list.Size = new System.Drawing.Size(165, 19);
+            this.c_dupe_include_list.TabIndex = 96;
+            this.c_dupe_include_list.Text = "Use ModelName Inclusion";
+            this.c_dupe_include_list.UseVisualStyleBackColor = true;
+            this.c_dupe_include_list.CheckedChanged += new System.EventHandler(this.c_dupe_include_list_CheckedChanged);
+            // 
+            // c_dupe_ignore_list
+            // 
+            this.c_dupe_ignore_list.AutoSize = true;
+            this.c_dupe_ignore_list.Location = new System.Drawing.Point(291, 67);
+            this.c_dupe_ignore_list.Name = "c_dupe_ignore_list";
+            this.c_dupe_ignore_list.Size = new System.Drawing.Size(167, 19);
+            this.c_dupe_ignore_list.TabIndex = 95;
+            this.c_dupe_ignore_list.Text = "Use ModelName Exclusion";
+            this.c_dupe_ignore_list.UseVisualStyleBackColor = true;
+            this.c_dupe_ignore_list.CheckedChanged += new System.EventHandler(this.c_dupe_ignore_list_CheckedChanged);
+            // 
+            // t_dupe_include_list
+            // 
+            this.t_dupe_include_list.Location = new System.Drawing.Point(6, 94);
+            this.t_dupe_include_list.Name = "t_dupe_include_list";
+            this.t_dupe_include_list.Size = new System.Drawing.Size(274, 23);
+            this.t_dupe_include_list.TabIndex = 94;
+            // 
+            // t_dupe_ignore_list
+            // 
+            this.t_dupe_ignore_list.Location = new System.Drawing.Point(6, 65);
+            this.t_dupe_ignore_list.Name = "t_dupe_ignore_list";
+            this.t_dupe_ignore_list.Size = new System.Drawing.Size(274, 23);
+            this.t_dupe_ignore_list.TabIndex = 93;
+            // 
+            // b_enemy_dupe
+            // 
+            this.b_enemy_dupe.Location = new System.Drawing.Point(6, 6);
+            this.b_enemy_dupe.Name = "b_enemy_dupe";
+            this.b_enemy_dupe.Size = new System.Drawing.Size(274, 23);
+            this.b_enemy_dupe.TabIndex = 4;
+            this.b_enemy_dupe.Text = "Duplicate Enemies";
+            this.b_enemy_dupe.UseVisualStyleBackColor = true;
+            this.b_enemy_dupe.Click += new System.EventHandler(this.b_enemy_dupe_Click);
+            // 
+            // t_dupe_count
+            // 
+            this.t_dupe_count.Location = new System.Drawing.Point(424, 7);
+            this.t_dupe_count.Name = "t_dupe_count";
+            this.t_dupe_count.Size = new System.Drawing.Size(136, 23);
+            this.t_dupe_count.TabIndex = 103;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(286, 6);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(132, 23);
+            this.textBox19.TabIndex = 104;
+            this.textBox19.Text = " Dupe Count";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1266,6 +1425,8 @@
             this.tabPage8.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1377,5 +1538,19 @@
         private TextBox t_limit_enemy_npcparam;
         private ComboBox cb_map_select;
         private TextBox textBox15;
+        private TabPage tabPage2;
+        private Button b_enemy_dupe;
+        private TextBox t_dupe_ignore_list;
+        private CheckBox c_dupe_include_list;
+        private CheckBox c_dupe_ignore_list;
+        private TextBox t_dupe_include_list;
+        private TextBox textBox16;
+        private CheckBox c_ignore_passive;
+        private CheckBox c_ignore_player;
+        private CheckBox c_ignore_script;
+        private CheckBox c_ignore_boss;
+        private TextBox textBox17;
+        private TextBox textBox19;
+        private TextBox t_dupe_count;
     }
 }

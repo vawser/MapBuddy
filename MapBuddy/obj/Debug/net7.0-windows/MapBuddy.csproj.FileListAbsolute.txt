@@ -17,3 +17,7 @@ C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\obj\Debug\net7.0-windows
 C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\obj\Debug\net7.0-windows\MapBuddy.pdb
 C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\obj\Debug\net7.0-windows\MapBuddy.genruntimeconfig.cache
 C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\obj\Debug\net7.0-windows\ref\MapBuddy.dll
+C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\Resources\enemy_boss.txt
+C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\Resources\enemy_passive.txt
+C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\Resources\enemy_player.txt
+C:\Users\Xylozi\Documents\C# Projects\MapBuddy\MapBuddy\bin\Debug\net7.0-windows\Resources\enemy_script.txt
