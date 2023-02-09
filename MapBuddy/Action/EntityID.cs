@@ -11,26 +11,20 @@ namespace MapBuddy.Action
 {
     internal class EntityID
     {
-        Util logger = new Util();
+        Logger logger = new Logger();
+        Util util = new Util();
 
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Dictionary<string, string> map_dict = new Dictionary<string, string>();
 
         DCX.Type compressionType = DCX.Type.DCX_DFLT_10000_44_9;
 
         bool incompleteChange;
 
-        public EntityID(string path, bool isAssetChange, bool isEnemyChange, bool isPlayerChange, bool overrideExisting, int range_start_id, int range_end_id)
+        public EntityID(string map_selection, string path, bool isAssetChange, bool isEnemyChange, bool isPlayerChange, bool overrideExisting, int range_start_id, int range_end_id)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-        
-            foreach (KeyValuePair<string, string> entry in mapDict)
+            map_dict = util.GetMapSelection(map_selection, path, logger);
+
+            foreach (KeyValuePair<string, string> entry in map_dict)
             {
                 string map_name = entry.Key;
                 string map_path = entry.Value;

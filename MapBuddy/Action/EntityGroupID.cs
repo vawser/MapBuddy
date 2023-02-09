@@ -13,46 +13,53 @@ namespace MapBuddy.Action
 {
     internal class EntityGroupID
     {
-        Util logger = new Util();
+        Logger logger = new Logger();
+        Util util = new Util();
 
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Dictionary<string, string> map_dict = new Dictionary<string, string>();
 
         DCX.Type compressionType = DCX.Type.DCX_DFLT_10000_44_9;
 
-        public EntityGroupID(string path, bool isAssetChange, bool isEnemyChange, bool replaceExisting, string EntityGroupID, string EntityGroupIndex, bool limitByModelName_Asset, string AssetLimitString_ModelName, bool limitByModelName_Enemy, string EnemyLimitString_ModelName, bool limitByNPCParam_Enemy, string EnemyLimitString_NPCParam)
+        public EntityGroupID(string map_selection, string path, bool isAssetChange, bool isEnemyChange, bool replaceExisting, string EntityGroupID, string EntityGroupIndex, bool limitByModelName_Asset, string AssetLimitString_ModelName, bool limitByModelName_Enemy, string EnemyLimitString_ModelName, bool limitByNPCParam_Enemy, string EnemyLimitString_NPCParam)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-        
-            foreach (KeyValuePair<string, string> entry in mapDict)
+            map_dict = util.GetMapSelection(map_selection, path, logger);
+
+            foreach (KeyValuePair<string, string> entry in map_dict)
             {
                 string map_name = entry.Key;
                 string map_path = entry.Value;
 
-                logger.AddToLog($"Editing {map_name}.");
+                bool edit = false;
+                if (map_selection == "All")
+                {
+                    edit = true;
+                }
+                else if (map_selection.Contains(map_name))
+                {
+                    edit = true;
+                }
 
-                string[] map_indexes = map_name.Replace("m", "").Split("_");
+                if (edit)
+                {
+                    logger.AddToLog($"Editing {map_name}.");
 
-                MSBE msb = MSBE.Read(map_path);
+                    string[] map_indexes = map_name.Replace("m", "").Split("_");
 
-                msb = AddEntityGroupID(msb, map_name, 
-                    isAssetChange, isEnemyChange, replaceExisting, 
-                    EntityGroupID, EntityGroupIndex, 
-                    limitByModelName_Asset, AssetLimitString_ModelName, 
-                    limitByModelName_Enemy, EnemyLimitString_ModelName, 
-                    limitByNPCParam_Enemy, EnemyLimitString_NPCParam
-                );
+                    MSBE msb = MSBE.Read(map_path);
 
-                msb.Write(map_path, compressionType);
+                    msb = AddEntityGroupID(msb, map_name,
+                        isAssetChange, isEnemyChange, replaceExisting,
+                        EntityGroupID, EntityGroupIndex,
+                        limitByModelName_Asset, AssetLimitString_ModelName,
+                        limitByModelName_Enemy, EnemyLimitString_ModelName,
+                        limitByNPCParam_Enemy, EnemyLimitString_NPCParam
+                    );
 
-                logger.AddToLog($"Finished editing {map_name}.");
-                logger.WriteLog();
+                    msb.Write(map_path, compressionType);
+
+                    logger.AddToLog($"Finished editing {map_name}.");
+                    logger.WriteLog();
+                }
             }
 
             MessageBox.Show("Applied Entity Group ID according to specification.", "Information", MessageBoxButtons.OK);

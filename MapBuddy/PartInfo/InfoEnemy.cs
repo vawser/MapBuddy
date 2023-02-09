@@ -10,26 +10,15 @@ namespace MapBuddy.Info
 {
     internal class InfoEnemy
     {
-        Util logger = new Util();
-
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Logger logger = new Logger();
 
         string output_dir = "";
         string header = "";
         string combined_file_name = "Global_Enemy";
         string file_format = "csv";
 
-        public InfoEnemy(string path)
+        public InfoEnemy(string path, Dictionary<string, string> mapDict, bool splitByMap)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-
             output_dir = logger.GetLogDir() + "\\Part\\Enemy\\";
 
             header = $"Name;" +
@@ -155,10 +144,6 @@ namespace MapBuddy.Info
                     $"UnkT84;" +
                     $"\n";
 
-        }
-
-        public void Execute(bool splitByMap)
-        {
             bool exists = Directory.Exists(output_dir);
 
             if (!exists)

@@ -14,20 +14,14 @@ namespace MapBuddy.Action
 {
     internal class MapInfo
     {
-        Util logger = new Util();
+        Logger logger = new Logger();
+        Util util = new Util();
 
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Dictionary<string, string> map_dict = new Dictionary<string, string>();
 
-        public MapInfo(string path, Dictionary<string, bool> part_elements, Dictionary<string, bool> event_elements, Dictionary<string, bool> region_elements, bool isSplitbyMap)
+        public MapInfo(string map_selection, string path, Dictionary<string, bool> part_elements, Dictionary<string, bool> event_elements, Dictionary<string, bool> region_elements, bool isSplitbyMap)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
+            map_dict = util.GetMapSelection(map_selection, path, logger);
 
             // Parts
             foreach (KeyValuePair<string, bool> entry in part_elements)
@@ -39,43 +33,35 @@ namespace MapBuddy.Action
                 {
                     if(propertyName == "Asset")
                     {
-                        InfoAsset action = new InfoAsset(path);
-                        action.Execute(isSplitbyMap);
+                        InfoAsset action = new InfoAsset(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Collision")
                     {
-                        InfoCollision action = new InfoCollision(path);
-                        action.Execute(isSplitbyMap);
+                        InfoCollision action = new InfoCollision(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "ConnectCollision")
                     {
-                        InfoConnectCollision action = new InfoConnectCollision(path);
-                        action.Execute(isSplitbyMap);
+                        InfoConnectCollision action = new InfoConnectCollision(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "DummyAsset")
                     {
-                        InfoDummyAsset action = new InfoDummyAsset(path);
-                        action.Execute(isSplitbyMap);
+                        InfoDummyAsset action = new InfoDummyAsset(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "DummyEnemy")
                     {
-                        InfoDummyEnemy action = new InfoDummyEnemy(path);
-                        action.Execute(isSplitbyMap);
+                        InfoDummyEnemy action = new InfoDummyEnemy(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Enemy")
                     {
-                        InfoEnemy action = new InfoEnemy(path);
-                        action.Execute(isSplitbyMap);
+                        InfoEnemy action = new InfoEnemy(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MapPiece")
                     {
-                        InfoMapPiece action = new InfoMapPiece(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMapPiece action = new InfoMapPiece(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Player")
                     {
-                        InfoPlayer action = new InfoPlayer(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPlayer action = new InfoPlayer(path, map_dict, isSplitbyMap);
                     }
                 }
             }
@@ -90,58 +76,47 @@ namespace MapBuddy.Action
                 {
                     if (propertyName == "Generator")
                     {
-                        InfoGenerator action = new InfoGenerator(path);
-                        action.Execute(isSplitbyMap);
+                        InfoGenerator action = new InfoGenerator(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Mount")
                     {
-                        InfoMount action = new InfoMount(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMount action = new InfoMount(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Navmesh")
                     {
-                        InfoNavmesh action = new InfoNavmesh(path);
-                        action.Execute(isSplitbyMap);
+                        InfoNavmesh action = new InfoNavmesh(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "ObjAct")
                     {
-                        InfoObjAct action = new InfoObjAct(path);
-                        action.Execute(isSplitbyMap);
+                        InfoObjAct action = new InfoObjAct(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Other")
                     {
-                        InfoOther_event action = new InfoOther_event(path);
-                        action.Execute(isSplitbyMap);
+                        InfoOther_event action = new InfoOther_event(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PatrolInfo")
                     {
-                        InfoPatrolInfo action = new InfoPatrolInfo(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPatrolInfo action = new InfoPatrolInfo(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PlatoonInfo")
                     {
-                        InfoPlatoonInfo action = new InfoPlatoonInfo(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPlatoonInfo action = new InfoPlatoonInfo(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PseudoMultiplayer")
                     {
-                        InfoPseudoMultiplayer action = new InfoPseudoMultiplayer(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPseudoMultiplayer action = new InfoPseudoMultiplayer(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "RetryPoint")
                     {
-                        InfoRetryPoint action = new InfoRetryPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoRetryPoint action = new InfoRetryPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "SignPool")
                     {
-                        InfoSignPool action = new InfoSignPool(path);
-                        action.Execute(isSplitbyMap);
+                        InfoSignPool action = new InfoSignPool(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Treasure")
                     {
-                        InfoTreasure action = new InfoTreasure(path);
-                        action.Execute(isSplitbyMap);
+                        InfoTreasure action = new InfoTreasure(path, map_dict, isSplitbyMap);
                     }
                 }
             }
@@ -156,183 +131,147 @@ namespace MapBuddy.Action
                 {
                     if (propertyName == "AutoDrawGroupPoint")
                     {
-                        InfoAutoDrawGroupPoint action = new InfoAutoDrawGroupPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoAutoDrawGroupPoint action = new InfoAutoDrawGroupPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "BuddySummonPoint")
                     {
-                        InfoBuddySummonPoint action = new InfoBuddySummonPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoBuddySummonPoint action = new InfoBuddySummonPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Connection")
                     {
-                        InfoConnection action = new InfoConnection(path);
-                        action.Execute(isSplitbyMap);
+                        InfoConnection action = new InfoConnection(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Dummy")
                     {
-                        InfoDummy action = new InfoDummy(path);
-                        action.Execute(isSplitbyMap);
+                        InfoDummy action = new InfoDummy(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "EnvironmentMapEffectBox")
                     {
-                        InfoEnvironmentMapEffectBox action = new InfoEnvironmentMapEffectBox(path);
-                        action.Execute(isSplitbyMap);
+                        InfoEnvironmentMapEffectBox action = new InfoEnvironmentMapEffectBox(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "EnvironmentMapOutput")
                     {
-                        InfoEnvironmentMapOutput action = new InfoEnvironmentMapOutput(path);
-                        action.Execute(isSplitbyMap);
+                        InfoEnvironmentMapOutput action = new InfoEnvironmentMapOutput(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "EnvironmentMapPoint")
                     {
-                        InfoEnvironmentMapPoint action = new InfoEnvironmentMapPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoEnvironmentMapPoint action = new InfoEnvironmentMapPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "FallPreventionRemoval")
                     {
-                        InfoFallPreventionRemoval action = new InfoFallPreventionRemoval(path);
-                        action.Execute(isSplitbyMap);
+                        InfoFallPreventionRemoval action = new InfoFallPreventionRemoval(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "FastTravelRestriction")
                     {
-                        InfoFastTravelRestriction action = new InfoFastTravelRestriction(path);
-                        action.Execute(isSplitbyMap);
+                        InfoFastTravelRestriction action = new InfoFastTravelRestriction(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "GroupDefeatReward")
                     {
-                        InfoGroupDefeatReward action = new InfoGroupDefeatReward(path);
-                        action.Execute(isSplitbyMap);
+                        InfoGroupDefeatReward action = new InfoGroupDefeatReward(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Hitset")
                     {
-                        InfoHitset action = new InfoHitset(path);
-                        action.Execute(isSplitbyMap);
+                        InfoHitset action = new InfoHitset(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "HorseProhibition")
                     {
-                        InfoHorseProhibition action = new InfoHorseProhibition(path);
-                        action.Execute(isSplitbyMap);
+                        InfoHorseProhibition action = new InfoHorseProhibition(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "InvasionPoint")
                     {
-                        InfoInvasionPoint action = new InfoInvasionPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoInvasionPoint action = new InfoInvasionPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MapNameOverride")
                     {
-                        InfoMapNameOverride action = new InfoMapNameOverride(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMapNameOverride action = new InfoMapNameOverride(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MapPoint")
                     {
-                        InfoMapPoint action = new InfoMapPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMapPoint action = new InfoMapPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MapPointDiscoveryOverride")
                     {
-                        InfoMapPointDiscoveryOverride action = new InfoMapPointDiscoveryOverride(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMapPointDiscoveryOverride action = new InfoMapPointDiscoveryOverride(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MapPointParticipationOverride")
                     {
-                        InfoMapPointParticipationOverride action = new InfoMapPointParticipationOverride(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMapPointParticipationOverride action = new InfoMapPointParticipationOverride(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Message")
                     {
-                        InfoMessage action = new InfoMessage(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMessage action = new InfoMessage(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MountJump")
                     {
-                        InfoMountJump action = new InfoMountJump(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMountJump action = new InfoMountJump(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MountJumpFall")
                     {
-                        InfoMountJumpFall action = new InfoMountJumpFall(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMountJumpFall action = new InfoMountJumpFall(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MufflingBox")
                     {
-                        InfoMufflingBox action = new InfoMufflingBox(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMufflingBox action = new InfoMufflingBox(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MufflingPlane")
                     {
-                        InfoMufflingPlane action = new InfoMufflingPlane(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMufflingPlane action = new InfoMufflingPlane(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "MufflingPortal")
                     {
-                        InfoMufflingPortal action = new InfoMufflingPortal(path);
-                        action.Execute(isSplitbyMap);
+                        InfoMufflingPortal action = new InfoMufflingPortal(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "NavmeshCutting")
                     {
-                        InfoNavmeshCutting action = new InfoNavmeshCutting(path);
-                        action.Execute(isSplitbyMap);
+                        InfoNavmeshCutting action = new InfoNavmeshCutting(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Other")
                     {
-                        InfoOther action = new InfoOther(path);
-                        action.Execute(isSplitbyMap);
+                        InfoOther action = new InfoOther(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PatrolRoute")
                     {
-                        InfoPatrolRoute action = new InfoPatrolRoute(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPatrolRoute action = new InfoPatrolRoute(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PatrolRoute22")
                     {
-                        InfoPatrolRoute22 action = new InfoPatrolRoute22(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPatrolRoute22 action = new InfoPatrolRoute22(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "PlayArea")
                     {
-                        InfoPlayArea action = new InfoPlayArea(path);
-                        action.Execute(isSplitbyMap);
+                        InfoPlayArea action = new InfoPlayArea(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "SFX")
                     {
-                        InfoSFX action = new InfoSFX(path);
-                        action.Execute(isSplitbyMap);
+                        InfoSFX action = new InfoSFX(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "Sound")
                     {
-                        InfoSound action = new InfoSound(path);
-                        action.Execute(isSplitbyMap);
+                        InfoSound action = new InfoSound(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "SoundRegion")
                     {
-                        InfoSoundRegion action = new InfoSoundRegion(path);
-                        action.Execute(isSplitbyMap);
+                        InfoSoundRegion action = new InfoSoundRegion(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "SpawnPoint")
                     {
-                        InfoSpawnPoint action = new InfoSpawnPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoSpawnPoint action = new InfoSpawnPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "WeatherCreateAssetPoint")
                     {
-                        InfoWeatherCreateAssetPoint action = new InfoWeatherCreateAssetPoint(path);
-                        action.Execute(isSplitbyMap);
+                        InfoWeatherCreateAssetPoint action = new InfoWeatherCreateAssetPoint(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "WeatherOverride")
                     {
-                        InfoWeatherOverride action = new InfoWeatherOverride(path);
-                        action.Execute(isSplitbyMap);
+                        InfoWeatherOverride action = new InfoWeatherOverride(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "WindArea")
                     {
-                        InfoWindArea action = new InfoWindArea(path);
-                        action.Execute(isSplitbyMap);
+                        InfoWindArea action = new InfoWindArea(path, map_dict, isSplitbyMap);
                     }
                     if (propertyName == "WindSFX")
                     {
-                        InfoWindSFX action = new InfoWindSFX(path);
-                        action.Execute(isSplitbyMap);
+                        InfoWindSFX action = new InfoWindSFX(path, map_dict, isSplitbyMap);
                     }
                 }
             }

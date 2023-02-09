@@ -9,10 +9,7 @@ namespace MapBuddy.RegionInfo
 {
     internal class InfoMufflingPortal
     {
-        Util logger = new Util();
-
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Logger logger = new Logger();
 
         string output_dir = "";
         string header = "";
@@ -20,17 +17,9 @@ namespace MapBuddy.RegionInfo
         string combined_file_name = "";
         string file_format = "csv";
 
-        public InfoMufflingPortal(string path)
+        public InfoMufflingPortal(string path, Dictionary<string, string> mapDict, bool splitByMap)
         {
             combined_file_name = $"Global_{propertyName}";
-
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
 
             output_dir = logger.GetLogDir() + $"\\Region\\{propertyName}\\";
 
@@ -50,10 +39,7 @@ namespace MapBuddy.RegionInfo
                     $"UnkT00;" +
 
                     $"\n";
-        }
-
-        public void Execute(bool splitByMap)
-        {
+        
             bool exists = Directory.Exists(output_dir);
 
             if (!exists)

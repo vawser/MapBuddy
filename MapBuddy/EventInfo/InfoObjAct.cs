@@ -9,26 +9,15 @@ namespace MapBuddy.EventInfo
 {
     internal class InfoObjAct
     {
-        Util logger = new Util();
-
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Logger logger = new Logger();
 
         string output_dir = "";
         string header = "";
         string combined_file_name = "Global_ObjAct";
         string file_format = "csv";
 
-        public InfoObjAct(string path)
+        public InfoObjAct(string path, Dictionary<string, string> mapDict, bool splitByMap)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-
             output_dir = logger.GetLogDir() + "\\Event\\ObjAct\\";
 
             header = $"EventID;" +
@@ -49,10 +38,7 @@ namespace MapBuddy.EventInfo
                     $"EventFlagID;" +
 
                     $"\n";
-        }
 
-        public void Execute(bool splitByMap)
-        {
             bool exists = Directory.Exists(output_dir);
 
             if (!exists)

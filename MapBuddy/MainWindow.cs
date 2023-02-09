@@ -3,7 +3,9 @@ using MapBuddy.EventInfo;
 using MapBuddy.Info;
 using MapBuddy.RegionInfo;
 using SoulsFormats;
+using SoulsFormats.KF4;
 using System;
+using System.IO;
 using System.Reflection;
 
 namespace MapBuddy
@@ -38,6 +40,33 @@ namespace MapBuddy
             c_entitygroup_enemy.Checked = true;
             t_entitygroup_id.Text = "40005000";
             t_entitygroup_index.Text = "0";
+
+            UpdateMapSelection(mod_folder);
+        }
+        private void UpdateMapSelection(string path)
+        {
+            List<string> maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
+
+            cb_map_select.Items.Clear();
+
+            if (maps.Count > 0)
+            {
+                cb_map_select.Items.Add("All");
+                cb_map_select.SelectedIndex = cb_map_select.FindStringExact("All");
+
+                foreach (string map in maps)
+                {
+                    string map_path = map;
+                    string map_name = Path.GetFileNameWithoutExtension(map);
+
+                    cb_map_select.Items.Add(map_name);
+                }
+            }
+            else
+            {
+                cb_map_select.Items.Add("None");
+                cb_map_select.SelectedIndex = cb_map_select.FindStringExact("None");
+            }
         }
 
         private ToolTip CreateTooltip(Label label, string text)
@@ -65,6 +94,8 @@ namespace MapBuddy
             {
                 mod_folder = dialog_mod_folder.SelectedPath;
                 textbox_mod_folder.Text = mod_folder;
+
+                UpdateMapSelection(mod_folder);
             }
         }
 
@@ -119,6 +150,7 @@ namespace MapBuddy
             }
 
             EntityID action = new EntityID(
+                cb_map_select.Text,
                 mod_folder, 
                 c_entityid_asset.Checked, 
                 c_entityid_enemy.Checked, 
@@ -195,6 +227,7 @@ namespace MapBuddy
             }
 
             EntityGroupID action = new EntityGroupID(
+                cb_map_select.Text,
                 mod_folder,
                 c_entitygroup_asset.Checked,
                 c_entitygroup_enemy.Checked,
@@ -278,7 +311,14 @@ namespace MapBuddy
             region_elements.Add("WindArea", c_region_windarea.Checked);
             region_elements.Add("WindSFX", c_region_windsfx.Checked);
 
-            MapInfo action = new MapInfo(mod_folder, part_elements, event_elements, region_elements, c_split_by_map.Checked);
+            MapInfo action = new MapInfo(
+                cb_map_select.Text, 
+                mod_folder, 
+                part_elements, 
+                event_elements, 
+                region_elements, 
+                c_split_by_map.Checked
+            );
         }
 
         private void b_tick_all_parts_Click(object sender, EventArgs e)

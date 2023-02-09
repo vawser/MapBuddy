@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SoulsFormats.KF4;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,37 +10,38 @@ namespace MapBuddy
 {
     internal class Util
     {
-        public string log;
-
-        public Util()
+        public Dictionary<string, string> GetMapSelection(string map_selection, string path, Logger logger)
         {
-            log = "";
-        }
+             List<string> map_list = new List<string>();
+             Dictionary<string, string> map_dict = new Dictionary<string, string>();
 
-        public void WriteLog()
-        {
-            string logDir = GetLogDir();
-
-            bool exists = System.IO.Directory.Exists(logDir);
-
-            if (!exists)
+            if (map_selection == "All")
             {
-                System.IO.Directory.CreateDirectory(logDir);
+                map_list = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
+                logger.AddToLog($"Editing all maps.");
+            }
+            else
+            {
+                List<string> temp = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
+                foreach (string s in temp)
+                {
+                    if (s.Contains(map_selection))
+                    {
+                        map_list.Add(s);
+                    }
+                }
+
+                logger.AddToLog($"Editing map {map_selection}.");
             }
 
-            File.AppendAllText($"{logDir}log.txt", log);
+            foreach (string map in map_list)
+            {
+                string map_path = map;
+                string map_name = Path.GetFileNameWithoutExtension(map);
+                map_dict.Add(map_name, map_path);
+            }
 
-            log = "";
-        }
-
-        public void AddToLog(string text)
-        {
-            log = log + text + "\n";
-        }
-
-        public string GetLogDir()
-        {
-            return System.AppDomain.CurrentDomain.BaseDirectory + "\\Log\\";
+            return map_dict;
         }
     }
 }

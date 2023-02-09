@@ -35,6 +35,8 @@
             this.buttom_select_folder = new System.Windows.Forms.Button();
             this.dialog_mod_folder = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.cb_map_select = new System.Windows.Forms.ComboBox();
             this.b_output_csv = new System.Windows.Forms.Button();
             this.c_split_by_map = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -151,17 +153,17 @@
             // 
             // textbox_mod_folder
             // 
-            this.textbox_mod_folder.Location = new System.Drawing.Point(8, 37);
+            this.textbox_mod_folder.Location = new System.Drawing.Point(8, 67);
             this.textbox_mod_folder.Name = "textbox_mod_folder";
             this.textbox_mod_folder.ReadOnly = true;
-            this.textbox_mod_folder.Size = new System.Drawing.Size(552, 23);
+            this.textbox_mod_folder.Size = new System.Drawing.Size(276, 23);
             this.textbox_mod_folder.TabIndex = 1;
             // 
             // buttom_select_folder
             // 
-            this.buttom_select_folder.Location = new System.Drawing.Point(8, 66);
+            this.buttom_select_folder.Location = new System.Drawing.Point(8, 37);
             this.buttom_select_folder.Name = "buttom_select_folder";
-            this.buttom_select_folder.Size = new System.Drawing.Size(552, 23);
+            this.buttom_select_folder.Size = new System.Drawing.Size(276, 23);
             this.buttom_select_folder.TabIndex = 3;
             this.buttom_select_folder.Text = "Select Folder";
             this.buttom_select_folder.UseVisualStyleBackColor = true;
@@ -169,6 +171,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox15);
+            this.groupBox3.Controls.Add(this.cb_map_select);
             this.groupBox3.Controls.Add(this.textbox_mod_folder);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.buttom_select_folder);
@@ -178,6 +182,24 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Configuration";
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBox15.Location = new System.Drawing.Point(290, 37);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(276, 23);
+            this.textBox15.TabIndex = 5;
+            this.textBox15.Text = " Map to Edit";
+            // 
+            // cb_map_select
+            // 
+            this.cb_map_select.FormattingEnabled = true;
+            this.cb_map_select.Location = new System.Drawing.Point(290, 67);
+            this.cb_map_select.Name = "cb_map_select";
+            this.cb_map_select.Size = new System.Drawing.Size(270, 23);
+            this.cb_map_select.TabIndex = 4;
             // 
             // b_output_csv
             // 
@@ -1135,7 +1157,7 @@
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(554, 23);
             this.textBox14.TabIndex = 96;
-            this.textBox14.Text = " Enemy: Application Conditions";
+            this.textBox14.Text = " Enemy: Apply Conditions";
             // 
             // c_limit_asset_modelname
             // 
@@ -1154,7 +1176,7 @@
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(554, 23);
             this.textBox13.TabIndex = 94;
-            this.textBox13.Text = " Asset: Application Conditions";
+            this.textBox13.Text = " Asset: Apply Conditions";
             // 
             // textBox12
             // 
@@ -1353,5 +1375,7 @@
         private TextBox textBox14;
         private CheckBox c_limit_enemy_npcparam;
         private TextBox t_limit_enemy_npcparam;
+        private ComboBox cb_map_select;
+        private TextBox textBox15;
     }
 }

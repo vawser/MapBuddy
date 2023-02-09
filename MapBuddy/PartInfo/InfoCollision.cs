@@ -9,26 +9,15 @@ namespace MapBuddy.Info
 {
     internal class InfoCollision
     {
-        Util logger = new Util();
-
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Logger logger = new Logger();
 
         string output_dir = "";
         string header = "";
         string combined_file_name = "Global_Collision";
         string file_format = "csv";
 
-        public InfoCollision(string path)
+        public InfoCollision(string path, Dictionary<string, string> mapDict, bool splitByMap)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-
             output_dir = logger.GetLogDir() + "\\Part\\Collision\\";
 
             header = $"Name;" +
@@ -186,10 +175,7 @@ namespace MapBuddy.Info
                     $"UnkT4E;" +
 
                     $"\n";
-        }
 
-        public void Execute(bool splitByMap)
-        {
             bool exists = Directory.Exists(output_dir);
 
             if (!exists)

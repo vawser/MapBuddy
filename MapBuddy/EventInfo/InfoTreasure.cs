@@ -9,26 +9,17 @@ namespace MapBuddy.EventInfo
 {
     internal class InfoTreasure
     {
-        Util logger = new Util();
+        Logger logger = new Logger();
 
-        private List<string> maps = new List<string>();
-        Dictionary<string, string> mapDict = new Dictionary<string, string>();
+        Dictionary<string, string> mapDict;
 
         string output_dir = "";
         string header = "";
         string combined_file_name = "Global_Treasure";
         string file_format = "csv";
 
-        public InfoTreasure(string path)
+        public InfoTreasure(string path, Dictionary<string, string> mapDict, bool splitByMap)
         {
-            maps = Directory.GetFileSystemEntries(path + "\\map\\mapstudio", @"*.msb.dcx").ToList();
-            foreach (string map in maps)
-            {
-                string map_path = map;
-                string map_name = Path.GetFileNameWithoutExtension(map);
-                mapDict.Add(map_name, map_path);
-            }
-
             output_dir = logger.GetLogDir() + "\\Event\\Treasure\\";
 
             header = $"EventID;" +
@@ -50,10 +41,7 @@ namespace MapBuddy.EventInfo
                     $"StartDisabled;" +
 
                     $"\n";
-        }
 
-        public void Execute(bool splitByMap)
-        {
             bool exists = Directory.Exists(output_dir);
 
             if (!exists)
