@@ -92,7 +92,7 @@ namespace MapBuddy
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            string version = "0.0.2";
+            string version = "0.0.3";
             Text = "Map Buddy - " + version;
         }
 
@@ -109,6 +109,25 @@ namespace MapBuddy
 
         private void b_enemy_dupe_Click(object sender, EventArgs e)
         {
+            string entity_group_id = t_dupe_entity_group_id.Text;
+            string dupe_count = t_dupe_count.Text;
+
+             if (!IsDigitsOnly(entity_group_id))
+            {
+                MessageBox.Show($"Entity Group ID is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (!IsDigitsOnly(dupe_count))
+            {
+                MessageBox.Show($"Dupe Count is not numeric.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (dupe_count == "")
+            {
+                MessageBox.Show($"Dupe Count is empty.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             EnemyDupe action = new EnemyDupe(
                 cb_map_select.Text,
                 mod_folder,
@@ -120,7 +139,8 @@ namespace MapBuddy
                 c_ignore_boss.Checked,
                 c_ignore_player.Checked,
                 c_ignore_passive.Checked,
-                c_ignore_script.Checked
+                c_ignore_script.Checked,
+                t_dupe_entity_group_id.Text
             );
         }
 

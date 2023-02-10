@@ -108,6 +108,16 @@
             this.c_part_connectcollision = new System.Windows.Forms.CheckBox();
             this.c_part_collision = new System.Windows.Forms.CheckBox();
             this.c_part_asset = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.c_change_target = new System.Windows.Forms.CheckBox();
+            this.c_changeSource = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.b_map_merge = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.c_entityid_player = new System.Windows.Forms.CheckBox();
             this.c_override_existing = new System.Windows.Forms.CheckBox();
@@ -136,6 +146,8 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.t_dupe_count = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.c_ignore_passive = new System.Windows.Forms.CheckBox();
             this.c_ignore_player = new System.Windows.Forms.CheckBox();
@@ -147,11 +159,12 @@
             this.t_dupe_include_list = new System.Windows.Forms.TextBox();
             this.t_dupe_ignore_list = new System.Windows.Forms.TextBox();
             this.b_enemy_dupe = new System.Windows.Forms.Button();
-            this.t_dupe_count = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textbox25 = new System.Windows.Forms.TextBox();
+            this.t_dupe_entity_group_id = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -288,6 +301,7 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage9);
+            this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Controls.Add(this.tabPage2);
@@ -977,6 +991,104 @@
             this.c_part_asset.Text = "Asset";
             this.c_part_asset.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.c_change_target);
+            this.tabPage3.Controls.Add(this.c_changeSource);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.textBox22);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.textBox21);
+            this.tabPage3.Controls.Add(this.textBox20);
+            this.tabPage3.Controls.Add(this.textBox18);
+            this.tabPage3.Controls.Add(this.b_map_merge);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(572, 623);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Map Merge";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // c_change_target
+            // 
+            this.c_change_target.AutoSize = true;
+            this.c_change_target.Location = new System.Drawing.Point(286, 94);
+            this.c_change_target.Name = "c_change_target";
+            this.c_change_target.Size = new System.Drawing.Size(182, 19);
+            this.c_change_target.TabIndex = 91;
+            this.c_change_target.Text = "Apply Changes to Target Map";
+            this.c_change_target.UseVisualStyleBackColor = true;
+            // 
+            // c_changeSource
+            // 
+            this.c_changeSource.AutoSize = true;
+            this.c_changeSource.Location = new System.Drawing.Point(6, 94);
+            this.c_changeSource.Name = "c_changeSource";
+            this.c_changeSource.Size = new System.Drawing.Size(186, 19);
+            this.c_changeSource.TabIndex = 90;
+            this.c_changeSource.Text = "Apply Changes to Source Map";
+            this.c_changeSource.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(426, 65);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 23);
+            this.button2.TabIndex = 89;
+            this.button2.Text = "Select Folder";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(286, 65);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(134, 23);
+            this.textBox22.TabIndex = 88;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(146, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.TabIndex = 87;
+            this.button1.Text = "Select Folder";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(6, 64);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(134, 23);
+            this.textBox21.TabIndex = 86;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(286, 35);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
+            this.textBox20.Size = new System.Drawing.Size(274, 23);
+            this.textBox20.TabIndex = 81;
+            this.textBox20.Text = " Target Map";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(6, 35);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(274, 23);
+            this.textBox18.TabIndex = 80;
+            this.textBox18.Text = " Source Map";
+            // 
+            // b_map_merge
+            // 
+            this.b_map_merge.Location = new System.Drawing.Point(6, 6);
+            this.b_map_merge.Name = "b_map_merge";
+            this.b_map_merge.Size = new System.Drawing.Size(274, 23);
+            this.b_map_merge.TabIndex = 5;
+            this.b_map_merge.Text = "Merge Map";
+            this.b_map_merge.UseVisualStyleBackColor = true;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.c_entityid_player);
@@ -996,7 +1108,7 @@
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(572, 623);
             this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Entity ID Tool";
+            this.tabPage8.Text = "Entity ID";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // c_entityid_player
@@ -1127,7 +1239,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(572, 623);
             this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Entity Group Tool";
+            this.tabPage1.Text = "Entity Group ID";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // c_limit_enemy_npcparam
@@ -1264,6 +1376,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textbox25);
+            this.tabPage2.Controls.Add(this.t_dupe_entity_group_id);
             this.tabPage2.Controls.Add(this.textBox19);
             this.tabPage2.Controls.Add(this.t_dupe_count);
             this.tabPage2.Controls.Add(this.textBox17);
@@ -1284,6 +1398,22 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Enemy Duplication";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(4, 177);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(132, 23);
+            this.textBox19.TabIndex = 104;
+            this.textBox19.Text = " Dupe Count";
+            // 
+            // t_dupe_count
+            // 
+            this.t_dupe_count.Location = new System.Drawing.Point(142, 178);
+            this.t_dupe_count.Name = "t_dupe_count";
+            this.t_dupe_count.Size = new System.Drawing.Size(136, 23);
+            this.t_dupe_count.TabIndex = 103;
             // 
             // textBox17
             // 
@@ -1389,21 +1519,21 @@
             this.b_enemy_dupe.UseVisualStyleBackColor = true;
             this.b_enemy_dupe.Click += new System.EventHandler(this.b_enemy_dupe_Click);
             // 
-            // t_dupe_count
+            // textbox25
             // 
-            this.t_dupe_count.Location = new System.Drawing.Point(424, 7);
-            this.t_dupe_count.Name = "t_dupe_count";
-            this.t_dupe_count.Size = new System.Drawing.Size(136, 23);
-            this.t_dupe_count.TabIndex = 103;
+            this.textbox25.Location = new System.Drawing.Point(286, 177);
+            this.textbox25.Name = "textbox25";
+            this.textbox25.ReadOnly = true;
+            this.textbox25.Size = new System.Drawing.Size(132, 23);
+            this.textbox25.TabIndex = 106;
+            this.textbox25.Text = " Entity Group ID";
             // 
-            // textBox19
+            // t_dupe_entity_group_id
             // 
-            this.textBox19.Location = new System.Drawing.Point(286, 6);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(132, 23);
-            this.textBox19.TabIndex = 104;
-            this.textBox19.Text = " Dupe Count";
+            this.t_dupe_entity_group_id.Location = new System.Drawing.Point(424, 178);
+            this.t_dupe_entity_group_id.Name = "t_dupe_entity_group_id";
+            this.t_dupe_entity_group_id.Size = new System.Drawing.Size(136, 23);
+            this.t_dupe_entity_group_id.TabIndex = 105;
             // 
             // MainWindow
             // 
@@ -1421,6 +1551,8 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -1552,5 +1684,17 @@
         private TextBox textBox17;
         private TextBox textBox19;
         private TextBox t_dupe_count;
+        private TabPage tabPage3;
+        private TextBox textBox20;
+        private TextBox textBox18;
+        private Button b_map_merge;
+        private CheckBox c_change_target;
+        private CheckBox c_changeSource;
+        private Button button2;
+        private TextBox textBox22;
+        private Button button1;
+        private TextBox textBox21;
+        private TextBox textbox25;
+        private TextBox t_dupe_entity_group_id;
     }
 }

@@ -18,7 +18,7 @@ namespace MapBuddy.Action
 
         DCX.Type compressionType = DCX.Type.DCX_DFLT_10000_44_9;
 
-        public EnemyDupe(string map_selection, string path, string dupe_count, bool isUsingExcludeList, string excludeList, bool isUsingIncludeList, string includeList, bool ignoreBossEnemy, bool ignorePlayerEnemy, bool ignorePassiveEnemy, bool ignoreScriptEnemy)
+        public EnemyDupe(string map_selection, string path, string dupe_count, bool isUsingExcludeList, string excludeList, bool isUsingIncludeList, string includeList, bool ignoreBossEnemy, bool ignorePlayerEnemy, bool ignorePassiveEnemy, bool ignoreScriptEnemy, string EntityGroupID)
         {
             map_dict = util.GetMapSelection(map_selection, path, logger);
 
@@ -44,7 +44,8 @@ namespace MapBuddy.Action
                     ignoreBossEnemy, 
                     ignorePlayerEnemy, 
                     ignorePassiveEnemy,
-                    ignoreScriptEnemy
+                    ignoreScriptEnemy,
+                    EntityGroupID
                 );
 
                 msb.Write(map_path, compressionType);
@@ -56,7 +57,7 @@ namespace MapBuddy.Action
             MessageBox.Show("Duplicated enemies.", "Information", MessageBoxButtons.OK);
         }
 
-        public MSBE DupeEnemies(MSBE msb, string dupe_count, bool isUsingExcludeList, string excludeList, bool isUsingIncludeList, string includeList, bool ignoreBossEnemy, bool ignorePlayerEnemy, bool ignorePassiveEnemy, bool ignoreScriptEnemy)
+        public MSBE DupeEnemies(MSBE msb, string dupe_count, bool isUsingExcludeList, string excludeList, bool isUsingIncludeList, string includeList, bool ignoreBossEnemy, bool ignorePlayerEnemy, bool ignorePassiveEnemy, bool ignoreScriptEnemy, string EntityGroupID)
         {
             List<MSBE.Part.Enemy> new_enemies = new List<MSBE.Part.Enemy>();
 
@@ -134,6 +135,29 @@ namespace MapBuddy.Action
                 {
                     MSBE.Part.Enemy new_enemy = new MSBE.Part.Enemy();
                     new_enemy = DupeEnemy(new_enemy, entity, i);
+
+                    if (EntityGroupID != "")
+                    {
+                        bool wasAssigned = false;
+                        uint entity_group_id = Convert.ToUInt32(EntityGroupID);
+
+                        for (int k = 0; k < new_enemy.EntityGroupIDs.Length; k++)
+                        {
+                            if (new_enemy.EntityGroupIDs[k] == 0)
+                            {
+                                new_enemy.EntityGroupIDs[k] = entity_group_id;
+                                logger.AddToLog($"Added {entity_group_id} to EntityGroupID[{k}] for {new_enemy.Name}.");
+                                wasAssigned = true;
+                                break;
+                            }
+                        }
+
+                        if (!wasAssigned)
+                        {
+                            logger.AddToLog($"No empty slots to add {entity_group_id} to {new_enemy.Name}.");
+                        }
+                    }
+
                     new_enemies.Add(new_enemy);
                 }
             }

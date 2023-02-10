@@ -1,0 +1,240 @@
+Editing all maps.
+Editing m10_00_00_00.msb.
+Ignored player enemy: c0000_9026.
+Ignored player enemy: c0000_9027.
+Ignored player enemy: c0000_9028.
+Ignored player enemy: c0000_9030.
+Ignored player enemy: c0000_9035.
+Ignored player enemy: c0000_9036.
+Ignored player enemy: c0000_9037.
+Ignored script enemy: c0100_9000.
+Ignored script enemy: c0100_9001.
+Ignored script enemy: c0100_9002.
+Ignored script enemy: c1000_9000.
+Ignored script enemy: c1000_9001.
+Ignored script enemy: c1000_9002.
+Ignored script enemy: c1000_9003.
+Ignored script enemy: c1000_9004.
+Ignored script enemy: c1000_9005.
+Ignored script enemy: c1000_9006.
+Ignored script enemy: c1000_9007.
+Ignored script enemy: c1000_9008.
+Ignored script enemy: c1000_9020.
+Ignored script enemy: c1000_9021.
+Ignored script enemy: c1000_9022.
+Ignored script enemy: c1000_9023.
+Ignored script enemy: c1000_9024.
+Ignored boss enemy: c2130_9000.
+Added 40006000 to EntityGroupID[1] for c2140_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c2500_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9003_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9011_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9012_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9013_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9014_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9015_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9016_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9017_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9018_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9020_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9027_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9029_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9030_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9032_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9034_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9035_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9040_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9041_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9042_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9044_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9045_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9046_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9047_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9048_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9049_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9050_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9051_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9052_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9053_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9054_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9056_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9057_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9058_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9059_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9060_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9061_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9062_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9063_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9064_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9065_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9070_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9071_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9072_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9073_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9074_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9076_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9077_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9078_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9079_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9080_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9081_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9082_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9083_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9084_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9086_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9088_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9089_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9100_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9103_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9104_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9111_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9115_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9116_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9117_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9118_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9120_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9121_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9122_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9123_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9124_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9125_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3000_9126_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9009_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9010_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9015_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9016_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3010_9018_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9010_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9011_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9016_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9017_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9018_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3020_9020_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9003_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9008_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9009_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9023_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9026_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9040_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9041_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9042_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9043_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9060_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9061_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9062_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9063_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9064_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9065_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9066_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9067_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9068_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9069_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3660_9080_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9003_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c3665_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9010_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9011_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9012_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9013_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9014_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4080_9015_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4090_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4160_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4160_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4161_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4191_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4191_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4191_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4200_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4200_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4200_9006_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9000_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9001_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9002_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9003_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9004_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9005_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9010_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9011_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9012_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9013_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9015_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9017_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9020_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9021_DUPE_1.
+Added 40006000 to EntityGroupID[2] for c4210_9026_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4270_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4490_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9003_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4491_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4600_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4640_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c4690_9000_DUPE_1.
+Ignored boss enemy: c4750_9000.
+Ignored boss enemy: c4751_9000.
+Added 40006000 to EntityGroupID[1] for c6001_9000_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9001_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9002_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9003_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9004_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9005_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9006_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9007_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9008_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9009_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9010_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9011_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9012_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9013_DUPE_1.
+Added 40006000 to EntityGroupID[1] for c6001_9014_DUPE_1.
+Ignored passive enemy: c8100_9000.
+Ignored passive enemy: c8100_9001.
+Ignored passive enemy: c8100_9002.
+Ignored passive enemy: c8100_9003.
+Ignored passive enemy: c8100_9004.
+Ignored passive enemy: c8100_9010.
+Ignored passive enemy: c8100_9011.
+Ignored passive enemy: c8110_9000.
+Ignored passive enemy: c8110_9002.
+Ignored passive enemy: c8110_9003.
+Ignored passive enemy: c8110_9004.
+Ignored passive enemy: c8110_9005.
+Ignored passive enemy: c8110_9007.
+Ignored passive enemy: c8110_9008.
+Ignored passive enemy: c8110_9009.
+Finished editing m10_00_00_00.msb.
